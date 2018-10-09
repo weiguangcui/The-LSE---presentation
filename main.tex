@@ -1,0 +1,224 @@
+\documentclass[aspectratio=1610]{beamer}
+\mode<presentation>
+\usetheme{Madrid}
+\usecolortheme{seahorse}
+% \usepackage[table]{xcolor}
+\usepackage{multimedia}
+\usepackage{media9}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{lmodern}
+% \usepackage[usenames, dvipsnames]{color}
+
+\usepackage{arydshln}
+\usepackage{url}
+\usepackage[absolute,overlay]{textpos}
+\setlength{\TPHorizModule}{\textwidth}
+\setlength{\TPVertModule}{\textwidth}
+
+\graphicspath{{plots/}}
+
+\setbeamercolor{CBwonb}{fg=white,bg=white!10!blue}
+\setbeamercolor{CBronb}{fg=red,bg=white!10!blue}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning}
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=1cm, minimum height=0.1cm,text centered, text width=2.5cm, draw=black, fill=red!30]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=1cm, minimum height=0.1cm, text centered, text width=2.5cm, draw=black, fill=blue!30]
+\tikzstyle{process} = [rectangle, minimum width=1cm, minimum height=0.1cm, text centered,text width=2.5cm, draw=black, fill=orange!30]
+\tikzstyle{decision} = [circle, minimum width=1cm, minimum height=0.1cm, text centered,text width=2.5cm, draw=black, fill=green!30]
+\tikzstyle{arrow} = [thick,->,text centered, color=blue, text width=2cm,>=stealth]
+
+\newcommand{\Msun}{~{\rm M_\sun}}
+\newcommand{\hMsun}{~h^{-1}\>{\rm M_\odot}}
+\newcommand{\Mpc}{~h^{-1}~{\rm Mpc}}
+\newcommand{\Kpc}{~h^{-1}~{\rm kpc}}
+
+
+\title[]{The Large Scale Environments}
+\subtitle{The large-scale distribution of baryons inside the cosmological
+hydrodynamical simualtions.}
+\author[Email: weiguang.cui@uam.es]{{\Large \bf Weiguang Cui},\inst{*} \footnote{\url{https://weiguangcui.github.io}}}
+\institute[]{
+  \inst{*}
+  Departamento de F\'isica Te\'{o}rica, \\
+  Universidad Aut\'{o}noma de Madrid, 28049 Madrid, Spain
+}
+\date[]{The HUBS workshop, Shanghai. \\  October, 16, 2018}
+\logo{\includegraphics[height=1cm]{logo_uam.jpg}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+  \frame{\titlepage}
+
+%----------------------------------
+\section{Introduction} \label{sec:1}
+
+\begin{frame}
+  \frametitle{Background: Cluster of Galaxies:}
+    \begin{itemize}
+      \item<1-> Galaxy cluster is the final state of the hierarchical structure formation.
+      \item<2-> Typically a few Mpc across, contain $\sim$ 100 - 1000 luminous galaxies and many more dwarfs, masses $\gtrsim 10^{14.5} M_{\odot}$.
+      \item<3-> Dark matter: $\sim 85 \%$, gas: $\sim 13 \%$, star: $\sim 1 - 2 \%$.
+      \item<4-> It provides plentiful information for baryonic processes, galaxy formation and cosmology models.
+    %   \item<5->[]
+    %     \begin{figure}
+    %       \includegraphics[width=0.292\textwidth]{Coma-SDSS.jpg}
+    %       \includegraphics[width=0.3\textwidth]{Coma-Rosat.pdf}
+    %       \includegraphics[width=0.3\textwidth]{Coma-Planck.pdf}
+    %       \vspace{-0.4cm}
+    %       \caption{The Coma cluster.}
+    %     \end{figure}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Background: Cluster of Galaxies:}
+  {\bf To understand these observational results, especially how they are formed, we need simulations.}
+  % \begin{textblock}{0.25}(0.05,0.4)
+  %   {\scriptsize Cluster 17 \\ credit: Gustavo Yepes.}
+  % \end{textblock}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Three Hundred: A successor of the {\sc nIFTy} project}
+  \only<1>{
+    \begin{center}
+      {\Large \bf The {\sc nIFTy} galaxy cluster comparison project}\footnote{\scriptsize Ref: Sembolini et al. 2016a,b; Elahi et al. 2016; Cui et al. 2016; Arthur et al. 2017}
+    \end{center}
+    \alert{11} different (in both algorithms and baryon models) simulation codes are used to simulate the same galaxy cluster.
+  }
+  \only<2>{
+    \begin{center}
+      {\Large \bf What did we find? I}
+    \end{center}
+    {\scriptsize
+    \begin{itemize}
+      \item The modern SPH codes produce correct entropy profiles as AMR, moving mesh.
+      \item The baryon models have larger effects than the fluid simulating techniques by mixing the entropy profiles.
+    \end{itemize}}
+    % \begin{figure}
+    %   \vspace{-0.2cm}
+    %   \includegraphics<2>[width=0.36\textwidth]{nifty-entropy.png}
+    %   \includegraphics<2>[width=0.45\textwidth]{nifty-entropy-fp.png}\vspace{-0.4cm}
+    %   % \caption{{\scriptsize Entropy profile. Ref: Sembolini et al. 2016a,b}}
+    % \end{figure}
+    % \begin{textblock}{0.12}(0.01,0.3)
+    %   {\scriptsize  Entropy profile. \\ Ref: Sembolini et al. 2016a,b.}
+    % \end{textblock}
+  }
+\end{frame}
+
+\section{The Three Hundred}
+\begin{frame}
+  \frametitle{The Three Hundred: Basic information}
+  \begin{itemize}
+    \item The most massive ($M_{vir} > 8\times 10^{14} \hMsun$) 324 clusters are selected from the MultiDark simulation(MDPL2)\footnote{\url{https://www.cosmosim.org}}.
+    \item 324 zoomed-in ICs are generated by cutting a spherical region with a radius of \alert{$15 \Mpc$} from the cluster center.
+    \item[]
+      \begin{table}
+        \fontsize{10}{10}\selectfont
+        \caption{Parameters of the Three Hundred simulations}
+        \begin{tabular}{lll}
+          \hline
+          Parameter& Value & Description\\
+          \hline
+          $\Omega_M$ & 0.307 & Total Matter density parameter\\
+          $\Omega_B$ & 0.048 & Baryon density parameter\\
+          $\Omega_\Lambda$ & 0.693 & Cosmological Constant density parameter\\
+          $h$ & 0.678  & Hubble constant in units of 100 km/s/Mpc\\
+          $\sigma_8$ & 0.823 & Normalization of Power spectrum\\
+          $n_s$ & 0.96  & Power index\\
+          % $f_B$ & 0.0696&  Cosmic Baryon Fraction\\
+          $z_{init}$ & 120 & Initial redshift of the simulations \\
+          $\epsilon_{phys}$ & 6.5 & Plummer equivalent softening in $\Kpc$ \\
+          % Box size & 1 $h^{-1} Gpc$ (15 $\Mpc$) & The MDPL2 simulation box on one side (the radius for each re-simulation region) \\
+          Particle mass & $2.36 \ (12.7) $ & gas (dark matter) particle mass in [$10^8 \hMsun$]\\
+          \hline
+        \end{tabular}
+      \end{table}
+\end{itemize}
+% \vspace{-0.6cm}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Three Hundred: theoretical models}
+  \begin{columns}[t]
+    \begin{column}{0.55\textwidth}
+      \begin{block}{hydrodynamical simulations with baryonic models:}
+        {\sc Gadget-\alert{MUSIC}}: classic SPH method. Radiative cooling, star formation with both thermal and kinetic Supernove (SN) feedback.
+
+        {\sc Gadget-\alert{X}}: modern SPH with the Wendland C4 kernel. Gas cooling with metal contributions, star formation with chemical enrichment, SN feedback with AGB phase, and AGN feedback.
+
+        {\sc GIZMO:} running.
+
+        {\sc Gadget-PESPH:} running.
+      \end{block}
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \begin{block}{SAMs from MultiDark-Galaxies:}
+        See Alexander's talk for more details of {\sc Galacticus}, {\sc SAG} (see also sofia's talk) and {\sc SAGE} (see also Darren's talk).
+
+        Notes: We select these catalogues from the same regions as the hydrodynamical simulations.
+      \end{block}
+    \end{column}
+  \end{columns}
+  % A coupling with MultiDark-Galaxies
+\end{frame}
+
+
+% \subsection{Scaling relations}
+% \begin{frame}
+%   \frametitle{Optical relations}
+%   The complete sample is used here.
+%   \begin{figure}
+%     \includegraphics[width=0.33\linewidth]{Optical-relation1}
+%     \includegraphics[width=0.32\linewidth]{Optical-relation2}
+%     \includegraphics[width=0.32\linewidth]{Optical-relation3}
+%     \vspace{-0.3cm}
+%     \caption{The optical relations. Cui et al. in prep.}
+%   \end{figure}
+% \end{frame}
+% \begin{frame}
+%   \frametitle{Optical relations: the satellite stellar mass function}
+%   The complete sample is used here.
+%   \begin{figure}
+%     \includegraphics<1>[width=0.7\linewidth]{Ssmf}
+%     \vspace{-0.6cm}
+%     \caption{The satellite stellar mass function. Cui et al. in prep.}
+%   \end{figure}
+% \end{frame}
+
+% \begin{frame}
+%   \frametitle{Gas scaling relations}
+%   \begin{figure}
+%     \includegraphics[width=0.48\linewidth]{T-M-relations}
+%     \includegraphics[width=0.48\linewidth]{YM_relation}
+%     \vspace{-0.4cm}
+%     \caption{The gas relations. Cui et al. in prep.}
+%   \end{figure}
+% \end{frame}
+
+\section{conclusion and future prospects}
+\begin{frame}
+  \frametitle{Conclusion}
+  {\Large
+  \begin{itemize}
+    \item The baryons have a negligible impact on the halo mass for both $M_{200}$ and $M_{500}$.
+    \item $\sim 20 \%$ of the complete sample is relaxed clusters, 26\% (9\%) of the sample is CC for GadgetX (MUSIC).
+    \item The baryon fractions are in agreement with the observations at massive halo masses for GadgetX.
+    \item The optical relations are in agreement with the observations but the galaxies from more models seem to be a little blue.
+    \item The gas relations are in agreement with observations.
+  \end{itemize}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Future works}
+  \begin{itemize}
+    \item The density profiles, Mostoghiu et al. in prep.
+    \item The environment effects, Wang et al. in prep.
+    % \item Comparisons between different methods for estimating cluster dynamical states.
+    \item The mock images in optical, X-ray and SZ (lower images). \alert{And more...}
+  \end{itemize}
+\end{frame}
+\end{document}
