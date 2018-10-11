@@ -13,6 +13,7 @@
 \usepackage{arydshln}
 \usepackage{url}
 \usepackage[absolute,overlay]{textpos}
+\usepackage[texcoord,grid,gridunit=cm,gridcolor=red!50,subgridcolor=green!50]{eso-pic}
 \setlength{\TPHorizModule}{\textwidth}
 \setlength{\TPVertModule}{\textwidth}
 
@@ -55,48 +56,67 @@ hydrodynamical simualtions.}
 \section{Introduction} \label{sec:1}
 
 \begin{frame}
-  \frametitle{Background: Cluster of Galaxies:}
-    \begin{itemize}
-      \item<1-> Galaxy cluster is the final state of the hierarchical structure formation.
-      \item<2-> Typically a few Mpc across, contain $\sim$ 100 - 1000 luminous galaxies and many more dwarfs, masses $\gtrsim 10^{14.5} M_{\odot}$.
-      \item<3-> Dark matter: $\sim 85 \%$, gas: $\sim 13 \%$, star: $\sim 1 - 2 \%$.
-      \item<4-> It provides plentiful information for baryonic processes, galaxy formation and cosmology models.
-    %   \item<5->[]
-    %     \begin{figure}
-    %       \includegraphics[width=0.292\textwidth]{Coma-SDSS.jpg}
-    %       \includegraphics[width=0.3\textwidth]{Coma-Rosat.pdf}
-    %       \includegraphics[width=0.3\textwidth]{Coma-Planck.pdf}
-    %       \vspace{-0.4cm}
-    %       \caption{The Coma cluster.}
-    %     \end{figure}
-    \end{itemize}
+  \frametitle{Background: the distribution of galaxies at large-scale}
+  \framezoom<1><2>(2.5cm,3cm)(2.5cm,2.5cm)
+  \begin{figure}
+    \includegraphics[width=0.8\textwidth]{2dFzcone.jpg}
+  \end{figure}
+
+  Credit: Yang et al. 2005
 \end{frame}
 
 \begin{frame}
-  \frametitle{Background: Cluster of Galaxies:}
-  {\bf To understand these observational results, especially how they are formed, we need simulations.}
-  % \begin{textblock}{0.25}(0.05,0.4)
-  %   {\scriptsize Cluster 17 \\ credit: Gustavo Yepes.}
-  % \end{textblock}
+  \frametitle{Background: the distribution of dark matter at large-scale}
+  \framezoom<1><2>[](5cm,3.5cm)(1.5cm,1.5cm)
+  \begin{figure}
+    \includegraphics[width=0.55\textwidth]{mdpl.jpg}
+  \end{figure}
+  Credit: MultiDark Planck simulation
 \end{frame}
 
 \begin{frame}
-  \frametitle{The Three Hundred: A successor of the {\sc nIFTy} project}
-  \only<1>{
-    \begin{center}
-      {\Large \bf The {\sc nIFTy} galaxy cluster comparison project}\footnote{\scriptsize Ref: Sembolini et al. 2016a,b; Elahi et al. 2016; Cui et al. 2016; Arthur et al. 2017}
-    \end{center}
-    \alert{11} different (in both algorithms and baryon models) simulation codes are used to simulate the same galaxy cluster.
-  }
+  \frametitle{Background: the fractions}
+  \begin{figure}
+    \includegraphics[width=0.55\textwidth]{fraction.jpg}
+  \end{figure}
+  \begin{textblock*}{4cm}(12.3cm,6cm)
+    {\color{red}{Stars only account for $\sim$0.07\%}}
+  \end{textblock*}
+\end{frame}
+\begin{frame}{Background: where is the others??}
+  \begin{figure}
+    \includegraphics[width=0.8\textwidth]{lonely-dog.jpg}
+  \end{figure}
   \only<2>{
-    \begin{center}
-      {\Large \bf What did we find? I}
-    \end{center}
-    {\scriptsize
-    \begin{itemize}
-      \item The modern SPH codes produce correct entropy profiles as AMR, moving mesh.
-      \item The baryon models have larger effects than the fluid simulating techniques by mixing the entropy profiles.
-    \end{itemize}}
+    \begin{textblock*}{15cm}(4cm,3cm)
+      {\Huge \color{red}{WHIM: WHy I'M here?}}
+    \end{textblock*}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{What is in this talk?}
+  \begin{itemize}
+    \item<1-> How to classify the large-scale environment?
+    \item<2-> The theoretical models for this study.
+    \item<3-> What does the model say about the baryon distribution?
+    \item<4-> Conclusion and future prospects.
+  \end{itemize}
+  % \only<1>{
+  %   \begin{center}
+  %     {\Large \bf The {\sc nIFTy} galaxy cluster comparison project}\footnote{\scriptsize Ref: Sembolini et al. 2016a,b; Elahi et al. 2016; Cui et al. 2016; Arthur et al. 2017}
+  %   \end{center}
+  %   \alert{11} different (in both algorithms and baryon models) simulation codes are used to simulate the same galaxy cluster.
+  % }
+  % \only<2>{
+  %   \begin{center}
+  %     {\Large \bf What did we find? I}
+  %   \end{center}
+  %   {\scriptsize
+  %   \begin{itemize}
+  %     \item The modern SPH codes produce correct entropy profiles as AMR, moving mesh.
+  %     \item The baryon models have larger effects than the fluid simulating techniques by mixing the entropy profiles.
+  %   \end{itemize}}
     % \begin{figure}
     %   \vspace{-0.2cm}
     %   \includegraphics<2>[width=0.36\textwidth]{nifty-entropy.png}
@@ -106,12 +126,13 @@ hydrodynamical simualtions.}
     % \begin{textblock}{0.12}(0.01,0.3)
     %   {\scriptsize  Entropy profile. \\ Ref: Sembolini et al. 2016a,b.}
     % \end{textblock}
-  }
+  % }
 \end{frame}
 
-\section{The Three Hundred}
+\section{The classification methods}
 \begin{frame}
-  \frametitle{The Three Hundred: Basic information}
+  \frametitle{The classification method -- Vweb}
+
   \begin{itemize}
     \item The most massive ($M_{vir} > 8\times 10^{14} \hMsun$) 324 clusters are selected from the MultiDark simulation(MDPL2)\footnote{\url{https://www.cosmosim.org}}.
     \item 324 zoomed-in ICs are generated by cutting a spherical region with a radius of \alert{$15 \Mpc$} from the cluster center.
@@ -142,7 +163,7 @@ hydrodynamical simualtions.}
 \end{frame}
 
 \begin{frame}
-  \frametitle{The Three Hundred: theoretical models}
+  \frametitle{The classification method -- Pweb}
   \begin{columns}[t]
     \begin{column}{0.55\textwidth}
       \begin{block}{hydrodynamical simulations with baryonic models:}
@@ -166,40 +187,47 @@ hydrodynamical simualtions.}
   % A coupling with MultiDark-Galaxies
 \end{frame}
 
+\section{simulations}
+\begin{frame}{The cosmological hydrodynamical simulations}
 
-% \subsection{Scaling relations}
-% \begin{frame}
-%   \frametitle{Optical relations}
-%   The complete sample is used here.
-%   \begin{figure}
-%     \includegraphics[width=0.33\linewidth]{Optical-relation1}
-%     \includegraphics[width=0.32\linewidth]{Optical-relation2}
-%     \includegraphics[width=0.32\linewidth]{Optical-relation3}
-%     \vspace{-0.3cm}
-%     \caption{The optical relations. Cui et al. in prep.}
-%   \end{figure}
-% \end{frame}
-% \begin{frame}
-%   \frametitle{Optical relations: the satellite stellar mass function}
-%   The complete sample is used here.
-%   \begin{figure}
-%     \includegraphics<1>[width=0.7\linewidth]{Ssmf}
-%     \vspace{-0.6cm}
-%     \caption{The satellite stellar mass function. Cui et al. in prep.}
-%   \end{figure}
-% \end{frame}
+\end{frame}
 
-% \begin{frame}
-%   \frametitle{Gas scaling relations}
-%   \begin{figure}
-%     \includegraphics[width=0.48\linewidth]{T-M-relations}
-%     \includegraphics[width=0.48\linewidth]{YM_relation}
-%     \vspace{-0.4cm}
-%     \caption{The gas relations. Cui et al. in prep.}
-%   \end{figure}
-% \end{frame}
+\section{Results}
+\begin{frame}{An illustriation}
+  \begin{figure}
+    \includegraphics[width=0.33\linewidth]{image_show_V}
+  \end{figure}
+  \begin{textblock*}{4cm}(12.3cm,6cm)
+    {Cui et al. 2018, Paper I, z=0}
+  \end{textblock*}
+\end{frame}
 
-\section{conclusion and future prospects}
+\begin{frame}{The fractions}
+  \begin{figure}
+    \includegraphics<1>[width=\linewidth]{Fractions-BE}
+    \includegraphics<2>[width=\linewidth]{Fractions-gasweb}
+    \caption{The mass and volume fractions of these large-scale environments}
+  \end{figure}
+  \begin{textblock*}{4cm}(12.3cm,6cm)
+    {Cui et al. 2018, Paper I, z=0}
+  \end{textblock*}
+\end{frame}
+
+\begin{frame}
+  \begin{textblock*}{8cm}(6.3cm,6cm)
+    {\Huge Primarily results from Paper II}
+  \end{textblock*}
+\end{frame}
+
+\begin{frame}{An illustriation: redshift evolution}
+  \begin{figure}
+    \includegraphics[width=0.6\linewidth]{Evolution-illustriation}
+  \end{figure}
+\end{frame}
+
+
+
+\section{conclusion and future prospections}
 \begin{frame}
   \frametitle{Conclusion}
   {\Large
@@ -213,12 +241,20 @@ hydrodynamical simualtions.}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Future works}
+  \frametitle{Future prospects}
+  The detailed fractions that we can measure -- connecting hydrodynamical simulations with observations through mock images.
   \begin{itemize}
-    \item The density profiles, Mostoghiu et al. in prep.
-    \item The environment effects, Wang et al. in prep.
-    % \item Comparisons between different methods for estimating cluster dynamical states.
-    \item The mock images in optical, X-ray and SZ (lower images). \alert{And more...}
+    \item Optical: pymgal
+    \item Xray: pymxc  (More details)
+    \item SZ: pymsz
+    \item Radio: pymr
   \end{itemize}
+
+  \only<2>{
+  Suggestions to HUBS:
+  \begin{itemize}
+    \item[1] theoretical investigation with pymxc.
+    \item[2] Application to cosmology.
+  \end{itemize}}
 \end{frame}
 \end{document}
