@@ -13,7 +13,7 @@
 \usepackage{arydshln}
 \usepackage{url}
 \usepackage[absolute,overlay]{textpos}
-\usepackage[texcoord,grid,gridunit=cm,gridcolor=red!50,subgridcolor=green!50]{eso-pic}
+% \usepackage[texcoord,grid,gridunit=cm,gridcolor=red!50,subgridcolor=green!50]{eso-pic}
 \setlength{\TPHorizModule}{\textwidth}
 \setlength{\TPVertModule}{\textwidth}
 
@@ -163,37 +163,6 @@ The content of the Universe:
   % }
 \end{frame}
 
-\section{The classification methods}
-\begin{frame}{The large-scale structure classification methods -- Vweb and Pweb}
-
-% \vspace{-0.6cm}
-\end{frame}
-
-\begin{frame}
-  \frametitle{The classification method -- Pweb}
-  \begin{columns}[t]
-    \begin{column}{0.55\textwidth}
-      \begin{block}{hydrodynamical simulations with baryonic models:}
-        {\sc Gadget-\alert{MUSIC}}: classic SPH method. Radiative cooling, star formation with both thermal and kinetic Supernove (SN) feedback.
-
-        {\sc Gadget-\alert{X}}: modern SPH with the Wendland C4 kernel. Gas cooling with metal contributions, star formation with chemical enrichment, SN feedback with AGB phase, and AGN feedback.
-
-        {\sc GIZMO:} running.
-
-        {\sc Gadget-PESPH:} running.
-      \end{block}
-    \end{column}
-    \begin{column}{0.4\textwidth}
-      \begin{block}{SAMs from MultiDark-Galaxies:}
-        See Alexander's talk for more details of {\sc Galacticus}, {\sc SAG} (see also sofia's talk) and {\sc SAGE} (see also Darren's talk).
-
-        Notes: We select these catalogues from the same regions as the hydrodynamical simulations.
-      \end{block}
-    \end{column}
-  \end{columns}
-  % A coupling with MultiDark-Galaxies
-\end{frame}
-
 \section{simulations}
 \begin{frame}{The cosmological hydrodynamical simulations}
 \begin{itemize}
@@ -243,6 +212,34 @@ The content of the Universe:
         \caption{The mass fractions are with respect to the cosmic baryon fraction.}
         \label{tab:my_label}
     \end{table}
+\end{frame}
+
+\section{The classification methods}
+\begin{frame}{The large-scale structure classification methods -- Vweb and Pweb\footnote{Also called T-web}}
+The re-scaled Poisson equation: $\Delta^2 \phi = \delta$ with $\delta$ the dimensionless matter overdensity and $\phi$ is the potential.
+\vspace{-0.6cm}
+  \begin{columns}[t]
+    \begin{column}{0.49\textwidth}
+      \begin{block}{Pweb:}
+      The tidal tensor, $T_{\alpha\beta}$, is defined by the Hessian of the
+gravitational potential $\phi$:
+     $T_{\alpha\beta} = \frac{\partial^2\phi}{\partial r_{\alpha} \partial r_{\beta}}.$
+      \end{block}
+    \end{column}
+    \begin{column}{0.49\textwidth}
+      \begin{block}{Tweb :}
+    The shear tensor, which is rewritten as
+    $\Sigma_{\alpha, \beta} = -\frac{1}{2}(\frac{\partial v_{\alpha}}{\partial r_{\beta}} + \frac{\partial v_{\beta}}{\partial r_{\alpha}})/H_0$ 
+      \end{block}
+    \end{column}
+  \end{columns}
+ The three eigenvalues $\lambda_1 > \lambda_2 > \lambda_3$ are used to determine the large-scale environments:
+ \begin{itemize}
+     \item Voids: if $\lambda_1 < \lambda_{th}$
+     \item Sheets: if $\lambda_1 >= \lambda_{th} > \lambda_2$
+     \item Filaments: if $\lambda_2 >= \lambda_{th} > \lambda_3$
+     \item Knots: $\lambda_3 >= \lambda_{th}$
+ \end{itemize}
 \end{frame}
 
 \section{Results}
