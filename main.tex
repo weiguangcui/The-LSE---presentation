@@ -61,7 +61,7 @@ The content of the Universe:
 \begin{figure}
     \includegraphics[width=0.6\textwidth]{fraction.jpg}
 \end{figure}
-\begin{textblock*}{4cm}(10.cm,6.6cm)
+\begin{textblock*}{3cm}(9.8cm,6.6cm)
 {$\sim$1\% of neutrinos, etc.}
 \end{textblock*}
 \end{frame}
@@ -72,7 +72,7 @@ The content of the Universe:
   \begin{figure}
     \includegraphics[width=0.6\textwidth]{mdpl.jpg}
   \end{figure}
-  \begin{textblock*}{2.5cm}(10.2cm,7cm)
+  \begin{textblock*}{2.5cm}(10.2cm,6cm)
     {Credit: MultiDark Planck simulation}
   \end{textblock*}
 \end{frame}
@@ -82,7 +82,7 @@ The content of the Universe:
 \begin{figure}
     \includegraphics[width=0.6\textwidth]{fraction.jpg}
 \end{figure}
-\begin{textblock*}{4cm}(10.cm,6.6cm)
+\begin{textblock*}{3cm}(9.8cm,6.6cm)
 {$\sim$1\% of neutrinos, etc.}
 \end{textblock*}
 \end{frame}
@@ -103,10 +103,10 @@ The content of the Universe:
   \begin{figure}
     \includegraphics[width=0.6\textwidth]{fraction.jpg}
   \end{figure}
-  \begin{textblock*}{4cm}(10.cm,6.6cm)
+  \begin{textblock*}{3cm}(9.8cm,6.6cm)
     {$\sim$1\% of neutrinos, etc.}
   \end{textblock*}
-  \begin{textblock*}{3cm}(10.cm,5.5cm)
+  \begin{textblock*}{2.6cm}(10.cm,5.2cm)
     {\color{red}{Stars only account for $\sim$0.07\%}}
   \end{textblock*}
 \end{frame}
@@ -115,7 +115,7 @@ The content of the Universe:
   \begin{figure}
     \includegraphics[width=\textwidth]{lonely-dog.jpg}
   \end{figure}
-  \only<2>{
+  \only<2-3>{
     \begin{textblock*}{15cm}(2cm,2.5cm)
       {\huge \color{green}{Cold gas + Hot gas + WHIM}}
     \end{textblock*}  
@@ -131,9 +131,9 @@ The content of the Universe:
   \frametitle{What is in this talk?}
   To study the distribution and abundance of baryonic matter at large-scale environments.
   \begin{itemize}
-    \item<1-> How to classify the large-scale environment?
-    \item<2-> The theoretical models for this study.
-    \item<3-> What does the model say about the baryon distribution?
+    \item<1-> The hydro-simulations for this study.
+    \item<2-> How to classify the large-scale environment?
+    \item<3-> What does the simulation say about the baryon distribution?
     \item<4-> Conclusion and future prospects.
   \end{itemize}
   % \only<1>{
@@ -165,29 +165,32 @@ The content of the Universe:
 
 \section{simulations}
 \begin{frame}{The cosmological hydrodynamical simulations}
+Three versions of simulations with different sets of baryonic models are used for this study:
 \begin{itemize}
-    \item Three versions of simulations with different sets of baryonic models are used for this study: RDM -- dark-matter-only simulation; CSF -- gas Cooling, Star formation and Supernovae feedback; AGN -- additional BH evolution and feedback are also included.
-    \item[]
-      \begin{table}
-        \fontsize{9}{9}\selectfont
-        \caption{Parameters of the Three Hundred simulations}
-        \begin{tabular}{lll}
-          \hline
-          Parameter& Value & Description\\
-          \hline
-          $\Omega_M$ & 0.24 & Total Matter density parameter\\
-          $\Omega_B$ & 0.041 & Baryon density parameter\\
-          $\Omega_\Lambda$ & 0.76 & Cosmological Constant density parameter\\
-          $h$ & 0.73  & Hubble constant in units of 100 km/s/Mpc\\
-          $\sigma_8$ & 0.8 & Normalization of Power spectrum\\
-          $n_s$ & 0.96  & Power index\\
-          $\epsilon_{phys}$ & 7.5 & Plummer equivalent softening in $\Kpc$ \\
-          Box size & 410 & [$\Mpc$] The simulation box size on one side \\
-          Particle mass & $7.6 (35.4) $ & [$10^8 \hMsun$] gas (DM) particle mass \\
-          \hline
-        \end{tabular}
-      \end{table}
+    \item RDM -- dark-matter-only simulation; 
+    \item CSF -- gas Cooling, Star formation and Supernovae feedback;
+    \item AGN -- additional BH evolution and feedback are also included.
 \end{itemize}
+\vspace{-0.6cm}
+\begin{table}
+\fontsize{9}{9}\selectfont
+\caption{Parameters of the Three Hundred simulations}
+\begin{tabular}{lll}
+  \hline
+  Parameter& Value & Description\\
+  \hline
+  $\Omega_M$ & 0.24 & Total Matter density parameter\\
+  $\Omega_B$ & 0.041 & Baryon density parameter\\
+  $\Omega_\Lambda$ & 0.76 & Cosmological Constant density parameter\\
+  $h$ & 0.73  & Hubble constant in units of 100 km/s/Mpc\\
+  $\sigma_8$ & 0.8 & Normalization of Power spectrum\\
+  $n_s$ & 0.96  & Power index\\
+  $\epsilon_{phys}$ & 7.5 & Plummer equivalent softening in $\Kpc$ \\
+  Box size & 410 & [$\Mpc$] The simulation box size on one side \\
+  Particle mass & $7.6 (35.4) $ & [$10^8 \hMsun$] gas (DM) particle mass \\
+  \hline
+\end{tabular}
+\end{table}
 \end{frame}
 
 \begin{frame}{The overall baryon fractions}
@@ -215,8 +218,10 @@ The content of the Universe:
 \end{frame}
 
 \section{The classification methods}
-\begin{frame}{The large-scale structure classification methods -- Vweb and Pweb\footnote{Also called T-web}}
-The re-scaled Poisson equation: $\Delta^2 \phi = \delta$ with $\delta$ the dimensionless matter overdensity and $\phi$ is the potential.
+\begin{frame}{The classification methods -- Vweb and Pweb\footnote{{\footnotesize Also called T-web}}}
+\only<1->{
+The re-scaled Poisson equation: $\Delta^2 \phi = \delta$ with $\delta$ the dimensionless matter overdensity and $\phi$ is the potential.}
+\only<2->{
 \vspace{-0.6cm}
   \begin{columns}[t]
     \begin{column}{0.49\textwidth}
@@ -232,18 +237,20 @@ gravitational potential $\phi$:
     $\Sigma_{\alpha, \beta} = -\frac{1}{2}(\frac{\partial v_{\alpha}}{\partial r_{\beta}} + \frac{\partial v_{\beta}}{\partial r_{\alpha}})/H_0$ 
       \end{block}
     \end{column}
-  \end{columns}
+  \end{columns}}
+\only<3->{
  The three eigenvalues $\lambda_1 > \lambda_2 > \lambda_3$ are used to determine the large-scale environments:
  \begin{itemize}
      \item Voids: if $\lambda_1 < \lambda_{th}$
      \item Sheets: if $\lambda_1 >= \lambda_{th} > \lambda_2$
      \item Filaments: if $\lambda_2 >= \lambda_{th} > \lambda_3$
      \item Knots: $\lambda_3 >= \lambda_{th}$
- \end{itemize}
+ \end{itemize}}
 \end{frame}
 
 \section{Results}
 \begin{frame}{An illustration at z = 0}
+\vspace{-0.3cm}
   \begin{figure}
     \includegraphics[width=0.5\linewidth]{image_show_V}
   \end{figure}
@@ -256,7 +263,7 @@ gravitational potential $\phi$:
   \begin{figure}
     \includegraphics<1>[width=\linewidth]{Fractions-BE}
     \includegraphics<2>[width=\linewidth]{Fractions-gasweb}
-    \caption{The mass and volume fractions of these large-scale environments, Cui et al. 2018, Paper I}
+    \caption{The mass and volume fractions of these \newline large-scale environments, Cui et al. 2018, Paper I}
   \end{figure}
 \end{frame}
 
