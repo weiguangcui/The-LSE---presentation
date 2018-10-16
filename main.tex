@@ -67,7 +67,7 @@ The content of the Universe:
 \end{frame}
 
 \begin{frame}
-  \frametitle{Background: the distribution of dark matter at large-scale}
+  \frametitle{Background: the distribution of dark matter at large scale}
   \framezoom<1><2>[](5cm,3.5cm)(1.5cm,1.5cm)
   \begin{figure}
     \includegraphics[width=0.6\textwidth]{mdpl.jpg}
@@ -111,7 +111,7 @@ The content of the Universe:
   \end{textblock*}
 \end{frame}
 
-\begin{frame}{Background: where is the others??}
+\begin{frame}{Background: waht and where is the others??}
   \begin{figure}
     \includegraphics[width=\textwidth]{lonely-dog.jpg}
   \end{figure}
@@ -132,7 +132,7 @@ The content of the Universe:
   To study the distribution and abundance of baryonic matter at large-scale environments.
   \begin{itemize}
     \item<1-> The hydro-simulations for this study.
-    \item<2-> How to classify the large-scale environment?
+    \item<2-> How to classify the large-scale environments?
     \item<3-> What does the simulation say about the baryon distribution?
     \item<4-> Conclusion and future prospects.
   \end{itemize}
@@ -186,11 +186,12 @@ Three versions of simulations with different sets of baryonic models are used fo
   $\sigma_8$ & 0.8 & Normalization of Power spectrum\\
   $n_s$ & 0.96  & Power index\\
   $\epsilon_{phys}$ & 7.5 & Plummer equivalent softening in $\Kpc$ \\
-  Box size & 410 & [$\Mpc$] The simulation box size on one side \\
+  Box size & \alert{410} & [$\Mpc$] The simulation box size on one side \\
   Particle mass & $7.6 (35.4) $ & [$10^8 \hMsun$] gas (DM) particle mass \\
   \hline
 \end{tabular}
 \end{table}
+Details can be found in Cui et al. 2014.
 \end{frame}
 
 \begin{frame}{The overall baryon fractions}
@@ -246,6 +247,9 @@ gravitational potential $\phi$:
      \item Filaments: if $\lambda_2 >= \lambda_{th} > \lambda_3$
      \item Knots: $\lambda_3 >= \lambda_{th}$
  \end{itemize}}
+\begin{textblock*}{3cm}(9.5cm,6cm)
+{$\lambda_{th} = 0.01$ for Pweb; $\lambda_{th} = 0.1$ for Vweb}
+\end{textblock*}
 \end{frame}
 
 \section{Results}
@@ -309,17 +313,19 @@ gravitational potential $\phi$:
 \begin{frame}{The fractions in different gas components.}
 \begin{table}
 \fontsize{10}{10}\selectfont
-\caption{The distribution of different baryon components in different environments.}
+\caption{The distribution of different baryon components in different environments. The AGN results are the first value with the CSF results follow in the bracket.}
   \begin{tabular}{c|c|c|c|c}
        & Voids & Sheets & Filaments & Knots \\
        \hline
        & & z = 0 & & \\
+       \hline
     $f_{M, gas}$ & 0.15 (0.16) & 0.38 (0.39) & 0.37 (0.36) & 0.1 (0.09) \\
     $f_{M, star}$ & 0.08 (0.06) & 0.33 (0.29) & 0.44 (0.48) & 0.15 (0.17) \\
     $f_{M, hot gas}$ & 0.002 (0.003) & 0.04 (0.05) & 0.46 (0.50) & 0.49 (0.45) \\
     $f_{M, WHIM}$ & 0.05 (0.06) & 0.30 (0.31) & \alert{0.51 (0.50)} & 0.14 (0.13) \\
     \hline
        & & z = 0.6 & & \\
+       \hline
     $f_{M, gas}$ & 0.14 (0.14) & 0.39 (0.39) & 0.37 (0.36) & 0.11 (0.11) \\
     $f_{M, star}$ & 0.05 (0.03) & 0.28 (0.22) & 0.47 (0.48) & 0.21 (0.27) \\
     $f_{M, hot gas}$ & 0.001 (0.000) & 0.01 (0.003) & 0.23 (0.15) & 0.76 (0.85) \\
@@ -345,15 +351,15 @@ gravitational potential $\phi$:
   \frametitle{Conclusion}
   {\Large
   \begin{itemize}
-    \item The baryon models have a weak impact on their distributions at large scale.
-    \item Gas web is a unbiased tracer of dark matter web.
+    \item The baryon models have a weak impact on the matter distributions at large scale.
+    \item Gas is a unbiased tracer of dark matter for these large-scale structures, especially filament.
     \item Although the whole gas is almost equally assigned into sheet and filaments, the most WHIM is located in the filament structures while the hot gas is basically located in filaments and knots.
   \end{itemize}}
 \end{frame}
 
 \begin{frame}
   \frametitle{Future prospects}
-  The detailed fractions that we can measure -- connecting hydrodynamical simulations with observations through mock images.
+  Connecting hydrodynamical simulations with observations through mock images.
   \begin{itemize}
     \item Optical: pymgal
     \item Xray: pymxc 
@@ -364,10 +370,15 @@ gravitational potential $\phi$:
   \end{itemize}
 
   \only<2>{
-  My interests to HUBS:
+  My personal interests to HUBS:
   \begin{itemize}
     \item[1] theoretical analysis pipeline with pymxc.
     \item[2] Using HUBS to constrain cosmology models/parameters.
   \end{itemize}}
 \end{frame}
+
+% \begin{frame}{ ~ }
+%     {\Huge Thank you.}
+% \end{frame}
+
 \end{document}
